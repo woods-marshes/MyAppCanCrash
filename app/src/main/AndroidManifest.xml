@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="io.github.woodsmarshes.myappcancrash">
 
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGE"/>
+
     <application
         android:name=".MyAppCanCrash"
         android:allowBackup="true"
