@@ -16,14 +16,15 @@ import kotlin.concurrent.thread
 object Repository {
 
    // private val packageDao = PackageDatabase.getDatabase(MyAppCanCrash.context).packageDao()
-    private lateinit var packages: ArrayList<Package>
+    private var packages = ArrayList<Package>()
 
     fun getPackage(): ArrayList<Package>{
-        val job = Job()
-        val scope = CoroutineScope(job)
-         scope.launch {
-            //packages = SearchPackage().getPackages()
-        }
+        //val job = Job()
+        //val scope = CoroutineScope(job)
+         //scope.launch {
+            packages = SearchPackage().getPackages()
+        //}
+        //job.cancel()
             return packages
            /* for (i in 0 .. packages.size) {
                 packageDao.insertPackage(packages[i])

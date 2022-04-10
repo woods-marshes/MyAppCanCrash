@@ -8,18 +8,18 @@ import io.github.woodsmarshes.myappcancrash.logic.Repository
 import io.github.woodsmarshes.myappcancrash.logic.model.Package
 
 class PackageListViewModel: ViewModel(){
-    /*  // private val packageDao = PackageDatabase.getDatabase(MyAppCanCrash.context).packageDao()
+      // private val packageDao = PackageDatabase.getDatabase(MyAppCanCrash.context).packageDao()
       val searchLiveData = MutableLiveData<String>()
       val placeList = ArrayList<Package>()
-     val placeLiveData = Transformations.switchMap(searchLiveData) { packageName ->
-          Repository.getPackage(packageName)
-      }
+     //val placeLiveData = Transformations.switchMap(searchLiveData) { packageName ->
+     //     Repository.getPackage(packageName)
+     // }
     fun getPackage(packageName: String) {
         searchLiveData.value = packageName
     }
 
-*/
-    lateinit var packageList: ArrayList<Package>
+
+    var packageList = ArrayList<Package>()
     fun setPackageList() {
         packageList = Repository.getPackage()
     }
