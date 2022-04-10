@@ -8,26 +8,29 @@ import io.github.woodsmarshes.myappcancrash.MyAppCanCrash
 //import io.github.woodsmarshes.myappcancrash.logic.dao.PackageDao
 import io.github.woodsmarshes.myappcancrash.logic.dao.SearchPackage
 import io.github.woodsmarshes.myappcancrash.logic.model.Package
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 import kotlin.concurrent.thread
 
 object Repository {
 
    // private val packageDao = PackageDatabase.getDatabase(MyAppCanCrash.context).packageDao()
-    lateinit var packages: ArrayList<Package>
+    private lateinit var packages: ArrayList<Package>
 
-    fun savePackages() {
-        thread {
-            packages = SearchPackage().getPackages()
+    fun getPackage(): ArrayList<Package>{
+        val job = Job()
+        val scope = CoroutineScope(job)
+         scope.launch {
+            //packages = SearchPackage().getPackages()
+        }
+            return packages
            /* for (i in 0 .. packages.size) {
                 packageDao.insertPackage(packages[i])
-            }
-
-            */
-        }
+            }*/
     }
 
-    fun getPackage(packageName: String): LiveData<Package> {
-        savePackages()
+/*    fun getPackage(packageName: String): LiveData<Package> {
        /* val package1 = packageDao.loadPackages(packageName)
         val liveData = MutableLiveData<Package>()
         liveData.value = package1[0]
@@ -38,6 +41,8 @@ object Repository {
         return liveData
     }
 
+
+ */
 
 
 }
