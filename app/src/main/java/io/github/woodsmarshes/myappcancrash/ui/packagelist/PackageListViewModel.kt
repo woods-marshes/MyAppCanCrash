@@ -19,8 +19,7 @@ class PackageListViewModel: ViewModel(){
     }
 
 
-    var packageList = ArrayList<Package>()
-    fun setPackageList() {
-        packageList = Repository.getPackage()
-    }
+
+    fun getPackageList() = Repository.getPackage()
+
 }

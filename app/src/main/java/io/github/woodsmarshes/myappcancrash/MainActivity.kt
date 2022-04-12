@@ -2,8 +2,10 @@ package io.github.woodsmarshes.myappcancrash
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Message
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,11 +25,13 @@ import io.github.woodsmarshes.myappcancrash.ui.packagelist.PackageListViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity() {
+
     lateinit var binding: ActivityMainBinding
     lateinit var viewModel: PackageListViewModel
-    private lateinit var packages: ArrayList<Package>
+
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,33 +39,15 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this).get(PackageListViewModel::class.java)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        viewModel.setPackageList()
-        val layoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
-        binding.RecyclerView.layoutManager = layoutManager
-        val adepter = PackageAdepter(this,viewModel.packageList)
-        binding.RecyclerView.adapter = adepter
-        /*val job = Job()
-        val scope = CoroutineScope(job)
-        scope.launch {
-            while (true) {
-                //SearchPackage().getPackages()
-                adepter.notifyDataSetChanged()
-            }
-        }
-        job.cancel()*/
         binding.button.setOnClickListener {
-//            viewModel.getPackage(binding.editText.text.toString())
+            val intent = Intent(this,PackageListActivity::class.java)
+            startActivity(intent)
         }
-        /* viewModel.searchLiveData.observe(this, Observer { count ->
-            binding.textView.text = count.toString()
-        })
-
-         */
-
-
     }
 }
+
 class PackageAdepter(val context: Context, val packageList: List<Package>): RecyclerView.Adapter<PackageAdepter.ViewHolder>(){
+
     inner class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val packageImage: ImageView = view.findViewById(R.id.packageImage)
         val packageName: TextView = view.findViewById(R.id.packageName)
@@ -77,7 +63,6 @@ class PackageAdepter(val context: Context, val packageList: List<Package>): Recy
         holder.packageImage.setImageDrawable(packages.packageImage)
         Glide.with(context).load(packages.packageImage).into(holder.packageImage)
         holder.packageName.text = packages.packageName
-
     }
 
     override fun getItemCount() = packageList.size

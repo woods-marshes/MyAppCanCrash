@@ -22,7 +22,7 @@ object Repository {
         //val job = Job()
         //val scope = CoroutineScope(job)
          //scope.launch {
-            packages = SearchPackage().getPackages()
+            //packages = SearchPackage().getPackages()
         //}
         //job.cancel()
             return packages

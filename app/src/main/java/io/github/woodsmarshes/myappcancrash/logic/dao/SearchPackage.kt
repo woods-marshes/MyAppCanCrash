@@ -14,7 +14,7 @@ class SearchPackage {
     private val packages = ArrayList<Package>()
 
         @JvmName("getPackages1")
-        fun getPackages() :ArrayList<Package>{
+        suspend fun getPackages() :ArrayList<Package>{
              val packageManager: PackageManager = MyAppCanCrash.context.packageManager
              val intent = Intent()
             intent.action = Intent.ACTION_MAIN
