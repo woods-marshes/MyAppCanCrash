@@ -3,8 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/AERSE/.gradle/caches/transforms-3/6bd06ca0e5f33590c68af0ab392d3a5d/transformed/core-1.7.0/res/layout/custom_dialog.xml" value="0.17916666666666667" />
         <entry key="..\:/Users/AERSE/AndroidStudioProjects/MyAppCanCrash/app/src/main/res/layout/activity_main.xml" value="0.17916666666666667" />
         <entry key="..\:/Users/AERSE/AndroidStudioProjects/MyAppCanCrash/app/src/main/res/layout/activity_package_list.xml" value="0.1" />
+        <entry key="..\:/Users/AERSE/AndroidStudioProjects/MyAppCanCrash/app/src/main/res/layout/activity_package_select_card.xml" value="0.17916666666666667" />
+        <entry key="..\:/Users/AERSE/AndroidStudioProjects/MyAppCanCrash/app/src/main/res/layout/package_buttom_sheet_dialog.xml" value="0.17916666666666667" />
         <entry key="..\:/Users/AERSE/AndroidStudioProjects/MyAppCanCrash/app/src/main/res/layout/package_item.xml" value="0.17916666666666667" />
       </map>
     </option>

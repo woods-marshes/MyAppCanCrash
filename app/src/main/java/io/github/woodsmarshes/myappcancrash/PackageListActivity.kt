@@ -1,9 +1,12 @@
 package io.github.woodsmarshes.myappcancrash
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import io.github.woodsmarshes.myappcancrash.databinding.ActivityPackageListBinding
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import io.github.woodsmarshes.myappcancrash.logic.dao.SearchPackage
 import io.github.woodsmarshes.myappcancrash.logic.model.Package
@@ -18,7 +21,10 @@ class PackageListActivity : AppCompatActivity(),CoroutineScope by MainScope(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPackageListBinding.inflate(layoutInflater)
+        setSupportActionBar(binding.toolbar)
         setContentView(binding.root)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        val fragmentManager: FragmentManager = supportFragmentManager
             launch {
                 val packageLists = withContext(Dispatchers.IO) {
                     SearchPackage().getPackages()
@@ -27,7 +33,7 @@ class PackageListActivity : AppCompatActivity(),CoroutineScope by MainScope(){
                 binding.RecyclerView.visibility = View.VISIBLE
                 val layoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
                 binding.RecyclerView.layoutManager = layoutManager
-                val adepter = PackageAdepter(MyAppCanCrash.context,packageLists)
+                val adepter = PackageAdepter(MyAppCanCrash.context,packageLists,fragmentManager)
                 binding.RecyclerView.adapter = adepter
         }
 
@@ -36,6 +42,16 @@ class PackageListActivity : AppCompatActivity(),CoroutineScope by MainScope(){
     override fun onDestroy() {
         super.onDestroy()
         cancel()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                finish()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
 

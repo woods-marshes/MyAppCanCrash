@@ -13,7 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAppCanCrash">
         <activity
+            android:name=".PackageSelectCardActivity"
+            android:exported="false"
+            android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity
             android:name=".PackageListActivity"
+            android:label="请选择"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
