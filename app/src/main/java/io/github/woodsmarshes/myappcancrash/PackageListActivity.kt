@@ -1,11 +1,15 @@
 package io.github.woodsmarshes.myappcancrash
 
+import android.app.SearchManager
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import io.github.woodsmarshes.myappcancrash.databinding.ActivityPackageListBinding
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.SearchView
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import io.github.woodsmarshes.myappcancrash.logic.dao.SearchPackage
@@ -52,6 +56,18 @@ class PackageListActivity : AppCompatActivity(),CoroutineScope by MainScope(){
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.options_menu,menu)
+        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
+        (menu!!.findItem(R.id.menu_search).actionView as SearchView).apply {
+            setSearchableInfo(searchManager.getSearchableInfo(componentName))
+            isIconifiedByDefault = false
+            isSubmitButtonEnabled = true
+        }
+        return true
     }
 }
 

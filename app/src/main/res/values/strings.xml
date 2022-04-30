@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MyAppCanCrash</string>
+    <string name="app_search_hint">请输入应用名称</string>
 </resources>
