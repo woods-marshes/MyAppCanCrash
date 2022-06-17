@@ -13,9 +13,11 @@
         <entry key="..\:/Users/AERSE/AndroidStudioProjects/MyAppCanCrash/app/src/main/res/layout/package_item.xml" value="0.17916666666666667" />
         <entry key="..\:/Users/AERSE/AndroidStudioProjects/MyAppCanCrash/app/src/main/res/layout/search_packages.xml" value="0.17916666666666667" />
         <entry key="..\:/Users/AERSE/AndroidStudioProjects/MyAppCanCrash/app/src/main/res/menu/options_menu.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/LIZ/StudioProjects/MyAppCanCrash/app/src/main/res/layout/activity_main.xml" value="0.27445652173913043" />
       </map>
     </option>
   </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

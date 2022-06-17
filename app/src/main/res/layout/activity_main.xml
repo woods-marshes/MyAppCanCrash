@@ -6,27 +6,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
- />
-
-    <EditText
-        android:id="@+id/editText"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints" />
-    <Button
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="点一下"
-        android:theme="@style/ThemeOverlay.Material3.Button"
-        tools:ignore="MissingConstraints" />
+        android:layout_height="match_parent">
 
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="560px"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="search the app your want"
+            android:theme="@style/ThemeOverlay.Material3.Button"
+            tools:ignore="MissingConstraints" />
 
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="560px"
+            android:layout_centerInParent="true"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/button1"
+            android:text="exit"
+            />
+
+    </RelativeLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -41,9 +41,12 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this).get(PackageListViewModel::class.java)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.button.setOnClickListener {
+        binding.button1.setOnClickListener {
             val intent = Intent(this,PackageListActivity::class.java)
             startActivity(intent)
+        }
+        binding.button2.setOnClickListener {
+            finish()
         }
     }
 }
